@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card narrow">
+    <h1>Create your {{ site.name }} account</h1>
+    {% if error %}<p class="error">{{ error }}</p>{% endif %}
+
+    <form method="post" autocomplete="on">
+      <label for="email">Email</label>
+      <input id="email" name="email" type="email" autocomplete="username" required>
+
+      <label for="new-password">Password</label>
+      <input id="new-password" name="new-password" type="password"
+             autocomplete="new-password" required minlength="8">
+      <p class="hint">
+        Tip: click into this field and look for Chrome's key icon offering
+        to suggest a strong password for you.
+      </p>
+
+      <label for="confirm-password">Confirm password</label>
+      <input id="confirm-password" name="confirm-password" type="password"
+             autocomplete="new-password" required minlength="8">
+
+      <button type="submit" class="button">Sign up</button>
+    </form>
+
+    <p class="muted">Already have an account? <a href="{{ url_for('login') }}">Log in</a></p>
+  </div>
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h1>You're logged in</h1>
+    <p>Welcome back, <strong>{{ email }}</strong>.</p>
+    <p class="muted">Account created: {{ created_at }}</p>
+
+    {% if breached_warning %}
+      <div class="banner warning">
+        <strong>Heads up:</strong> the password on this account matches one
+        on our small demo "known breached passwords" list. This is a toy
+        version of Google Password Manager's real
+        <strong>Password Checkup</strong> feature -- see
+        <code>password_checkup_from_scratch.py</code> in this repo for how
+        the real check works without ever revealing your actual password.
+      </div>
+    {% endif %}
+
+    <div class="actions">
+      <a class="button secondary" href="{{ url_for('change_password') }}">Change password</a>
+      <a class="button secondary" href="{{ url_for('logout') }}">Log out</a>
+    </div>
+  </div>
+{% endblock %}

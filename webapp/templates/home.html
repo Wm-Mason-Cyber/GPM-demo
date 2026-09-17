@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="card">
+    <h1>Welcome to {{ site.name }}</h1>
+    <p>{{ site.tagline }}</p>
+    <p class="muted">{{ user_count }} account(s) registered this session.</p>
+
+    <div class="actions">
+      <a class="button" href="{{ url_for('signup') }}">Create an account</a>
+      <a class="button secondary" href="{{ url_for('login') }}">Log in</a>
+    </div>
+
+    <hr>
+    <h2>Why does this site exist?</h2>
+    <p>
+      This is a practice site for using <strong>Google Password Manager</strong>.
+      It behaves like a real site as far as your browser is concerned, so you
+      can safely practice:
+    </p>
+    <ul>
+      <li>Letting Chrome <strong>save a password</strong> when you sign up</li>
+      <li>Using the <strong>suggested strong password</strong> (the key icon)
+          instead of typing your own</li>
+      <li><strong>Autofill</strong> on the login page</li>
+      <li>Updating a saved entry when you change your password</li>
+      <li>Noticing the <strong>weak / breached password</strong> warning</li>
+    </ul>
+    <p>
+      There's a second demo site running alongside this one at a different
+      address. Try saving a password here, then visit the other site --
+      notice that Chrome does <em>not</em> offer to autofill it there. That's
+      not a bug: passwords are tied to the exact site they were saved on.
+    </p>
+  </div>
+{% endblock %}

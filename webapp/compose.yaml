@@ -1,0 +1,13 @@
+services:
+  bank:
+    build: .
+    environment:
+      - SITE_KEY=bank
+    ports:
+      - "5000:5000"
+  shop:
+    build: .
+    environment:
+      - SITE_KEY=shop
+    ports:
+      - "5001:5001"
