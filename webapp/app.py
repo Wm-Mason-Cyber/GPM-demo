@@ -166,4 +166,6 @@ if __name__ == "__main__":
 
     site_key = sys.argv[1] if len(sys.argv) > 1 else "bank"
     app = create_app(site_key)
-    app.run(port=SITES[site_key]["port"], debug=True, use_reloader=False)
+    # 0.0.0.0 so this is reachable from outside a Docker container, not just
+    # from within it. Fine for a local classroom demo; not for the open internet.
+    app.run(host="0.0.0.0", port=SITES[site_key]["port"], debug=True, use_reloader=False)

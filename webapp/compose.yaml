@@ -1,3 +1,5 @@
+name: gpm-demo
+
 services:
   bank:
     build: .
